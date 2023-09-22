@@ -35,6 +35,8 @@
   /* background-color: red; */
 }
 
+.centered-content {
+}
 .centered-text {
   text-align: center;
   font-family: "Montserrat", sans-serif;
