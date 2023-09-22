@@ -1,9 +1,7 @@
 <template>
   <div class="spacecowboy-container">
     <NavbarComponent />
-    <div class="content">
-      <SpacecowboyComponent />
-    </div>
+    <SpacecowboyComponent />
   </div>
 </template>
 
@@ -27,7 +25,8 @@ export default class App extends Vue {}
   background-size: cover;
   /* background-repeat: no-repeat; */
   /* background-attachment: fixed; */
-  width: 100vw;
+
+  width: 100%;
   height: 100vh;
 }
 </style>

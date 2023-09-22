@@ -1,12 +1,9 @@
 <template>
   <div class="wrapper">
-    <IoRocket />
-    <nav class="navbar"></nav>
-    <div class="background-image"></div>
     <div class="content-container">
-      <div class="centered-text">
-        HEY THERE, WE ARE SPACECOWBOY.
-        <br />AN INDEPENDENT SPACE AGENCY
+      <div class="text">
+        <div class="centered-text">HEY THERE, WE ARE SPACECOWBOY.</div>
+        <div class="centred-small">- AN INDEPENDENT SPACE AGENCY -</div>
       </div>
       <button class="learn-more-button">Learn More</button>
     </div>
@@ -15,45 +12,54 @@
 
 <style scoped>
 .wrapper {
-  /* position: relative; */
-  height: 95vh;
-  width: 100vw;
-}
-
-.background-image {
-  /* background-image: url("@/assets/images/rocket.png");
-  background-size: cover;
-  background-position: center; */
-  /* width: 100vw;
-  height: 100vh; */
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1; */
-}
-
-.content-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 
+.content-container {
+  width: 40%;
+  height: 100%;
+  /* background-color: #ffd700; */
+  display: flex;
+  flex-direction: column;
+  gap: 20%;
+  justify-content: center;
+  align-items: center;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* background-color: red; */
+}
+
+.centered-content {
+}
 .centered-text {
   text-align: center;
-  font-size: 24px;
-  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  color: white;
+}
+
+.centred-small {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
   color: white;
 }
 
 .learn-more-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: yellow;
+  background-color: rgb(255, 238, 0);
   color: black;
   border: none;
   border-radius: 5px;
+  height: 6%;
+  width: 40%;
   font-size: 18px;
   cursor: pointer;
 }

@@ -65,8 +65,8 @@ nav {
   transition: background-color 0.3s;
   display: flex;
   flex-direction: row;
-  padding: 20px;
-  height: 5vh;
+  padding: 30px;
+  height: 5%;
 }
 .icon {
   width: 40%;
