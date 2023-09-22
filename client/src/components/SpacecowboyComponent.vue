@@ -15,13 +15,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  /* height: 100%;
+  width: 100%; */
+  background-image: url("@/assets/images/hero.jpg");
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
+  background-color: rgba(0, 0, 0, 0.384);
+  width: 100vw;
+  height: 100vh;
 }
 
 .content-container {
-  width: 40%;
+  width: 100%;
   height: 100%;
-  /* background-color: #ffd700; */
+  background-color: rgba(0, 0, 0, 0.308);
   display: flex;
   flex-direction: column;
   gap: 20%;
@@ -32,6 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 40%;
   /* background-color: red; */
 }
 
@@ -59,7 +68,7 @@
   border: none;
   border-radius: 5px;
   height: 6%;
-  width: 40%;
+  width: 15%;
   font-size: 18px;
   cursor: pointer;
 }

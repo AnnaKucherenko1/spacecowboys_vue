@@ -1,5 +1,5 @@
 <template>
-  <nav class="{ 'sticky': isSticky, 'mobile-open': isMobileMenuOpen }">
+  <nav id="nav" :class="{ sticky: active }">
     <div class="icon">
       <svg>
         <image href="/rocket_launch.svg" />
@@ -30,13 +30,22 @@
 export default {
   data() {
     return {
-      isSticky: false,
+      active: false,
       isMobileMenuOpen: false,
       isSmallScreen: false,
+      scrollY: 0, // Add scrollY property
     };
   },
   mounted() {
-    window.addEventListener("scroll", this.handleScroll);
+    // window.addEventListener("scroll", this.handleScroll);
+    window.document.onscroll = () => {
+      let navBar = document.getElementById("nav");
+      if (window.scrollY > navBar.offsetTop) {
+        this.active = true;
+      } else {
+        this.active = false;
+      }
+    };
     this.checkScreenSize();
     window.addEventListener("resize", this.checkScreenSize);
   },
@@ -45,9 +54,16 @@ export default {
     window.removeEventListener("resize", this.checkScreenSize);
   },
   methods: {
-    handleScroll() {
-      const scrollY = window.scrollY;
-      this.isSticky = scrollY > 100;
+    // handleScroll() {
+    //   this.scrollY = window.scrollY; // Update scrollY
+    //   this.isSticky = this.scrollY >= 1;
+    // },
+    toggleNavClass() {
+      if (this.active == false) {
+        return "nav";
+      } else {
+        return "sticky-nav";
+      }
     },
     toggleMobileMenu() {
       this.isMobileMenuOpen = !this.isMobileMenuOpen;
@@ -60,13 +76,24 @@ export default {
 </script>
 
 <style scoped>
-nav {
-  position: relative;
-  transition: background-color 0.3s;
+#nav {
+  /* position: relative;
+  transition: background-color 0.3s; */
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 30px;
-  height: 5%;
+  height: 4%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+}
+#nav.sticky {
+  transition: 150ms;
+  background-color: #333333;
+  height: 4%;
 }
 .icon {
   width: 40%;
@@ -75,14 +102,6 @@ nav {
   justify-content: center;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: gray;
-  z-index: 100;
-}
 .desktop-nav {
   display: flex;
   width: 60%;
@@ -99,6 +118,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  height: 100vh;
 }
 
 .mobile-button {
@@ -110,10 +130,10 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 101;
   display: flex;
+  height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -124,6 +144,11 @@ nav {
   font-size: 24px;
   margin: 10px 0;
   text-decoration: none;
+}
+
+a:hover {
+  color: yellow;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
