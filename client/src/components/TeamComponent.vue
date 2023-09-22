@@ -70,6 +70,10 @@ export default {
 .team-page {
   text-align: center;
   padding: 20px;
+  height: 85vh;
+  right: 0;
+  left: 0;
+  width: 100vw;
 }
 
 .page-title {

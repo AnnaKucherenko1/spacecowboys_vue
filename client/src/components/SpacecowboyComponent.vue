@@ -29,9 +29,11 @@
 .content-container {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.308);
+  background-color: rgba(0, 0, 0, 0.397);
   display: flex;
   flex-direction: column;
+  right: 0;
+  left: 0;
   gap: 20%;
   justify-content: center;
   align-items: center;
@@ -39,7 +41,7 @@
 .text {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   width: 40%;
   /* background-color: red; */
 }
@@ -50,7 +52,7 @@
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 38px;
+  font-size: 48px;
   color: white;
 }
 
@@ -58,7 +60,7 @@
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 24px;
   color: white;
 }
 

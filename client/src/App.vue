@@ -2,7 +2,8 @@
   <NavbarComponent />
   <SpacecowboyComponent />
   <FactsComponent />
-  <TeamComponent />
+  <!-- <TeamComponent /> -->
+  <ContactComponent />
 </template>
 
 <script lang="ts">
@@ -11,6 +12,7 @@ import NavbarComponent from "./components/NavbarComponent.vue";
 import SpacecowboyComponent from "./components/SpacecowboyComponent.vue";
 import FactsComponent from "./components/FactsComponent.vue";
 import TeamComponent from "./components/TeamComponent.vue";
+import ContactComponent from "./components/ContactComponent.vue";
 
 @Options({
   components: {
@@ -18,7 +20,14 @@ import TeamComponent from "./components/TeamComponent.vue";
     SpacecowboyComponent,
     FactsComponent,
     TeamComponent,
+    ContactComponent,
   },
 })
 export default class App extends Vue {}
 </script>
+
+<style>
+#app {
+  overflow: hidden;
+}
+</style>

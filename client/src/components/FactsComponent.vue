@@ -2,7 +2,11 @@
   <div class="page-container">
     <div class="page-title">A FEW FACTS ABOUT US</div>
     <div class="page-content">
-      <p>Some introductory text goes here...</p>
+      <p>
+        Before you do business with us,
+        <br />
+        you might want to know a little bit more about our company
+      </p>
     </div>
     <div class="container-row">
       <!-- Container 1 -->
@@ -34,18 +38,23 @@ export default {
 .page-container {
   text-align: center;
   padding: 20px;
-  height: 100vh;
-  width: 100%;
+  height: 85vh;
+  width: 100vw;
   background-color: #afafaf;
 }
 
 .page-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  margin: 5% 0% 1%;
 }
 
 .page-content {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  /* font-size: 24px; */
   font-size: 16px;
   margin-bottom: 20px;
   /* background-color: yellow; */
@@ -58,12 +67,12 @@ export default {
   gap: 20px;
   height: 80%;
   justify-content: center;
-  align-items: end;
+  margin-top: 7%;
 }
 
 .container {
   width: 20%;
-  height: 40%;
+  height: 50%;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   padding: 20px;

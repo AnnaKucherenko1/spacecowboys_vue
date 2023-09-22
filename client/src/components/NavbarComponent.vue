@@ -33,11 +33,9 @@ export default {
       active: false,
       isMobileMenuOpen: false,
       isSmallScreen: false,
-      scrollY: 0, // Add scrollY property
     };
   },
   mounted() {
-    // window.addEventListener("scroll", this.handleScroll);
     window.document.onscroll = () => {
       let navBar = document.getElementById("nav");
       if (window.scrollY > navBar.offsetTop) {
@@ -54,10 +52,6 @@ export default {
     window.removeEventListener("resize", this.checkScreenSize);
   },
   methods: {
-    // handleScroll() {
-    //   this.scrollY = window.scrollY; // Update scrollY
-    //   this.isSticky = this.scrollY >= 1;
-    // },
     toggleNavClass() {
       if (this.active == false) {
         return "nav";
@@ -77,15 +71,12 @@ export default {
 
 <style scoped>
 #nav {
-  /* position: relative;
-  transition: background-color 0.3s; */
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 30px;
   height: 4%;
   position: fixed;
-  left: 0;
   top: 0;
   width: 100vw;
   z-index: 100;
@@ -128,8 +119,6 @@ export default {
 .mobile-menu {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 101;
   display: flex;
