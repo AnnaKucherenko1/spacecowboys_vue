@@ -1,7 +1,7 @@
 <template>
   <NavbarComponent />
   <SpacecowboyComponent />
-  <FactsComponent />
+  <!-- <FactsComponent /> -->
   <!-- <TeamComponent /> -->
   <ContactComponent />
 </template>

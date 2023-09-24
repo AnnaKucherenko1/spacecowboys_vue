@@ -1,156 +1,214 @@
 <template>
-  <div class="contact-form">
-    <h2>SAY HELLO</h2>
-    <p>Some text here...</p>
-    <form @submit.prevent="submitForm" id="form">
-      <div class="wrapper">
-        <div class="columns">
-          <div class="form-group" :class="{ success: firstNameValid }">
+  <div class="contact-page">
+    <div class="page-title">SAY HELLO</div>
+    <form class="form-contact" @submit.prevent="submitForm">
+      <div class="form-content">
+        <div class="input-wrapper">
+          <div class="input-icons">
+            <i
+              class="fa fa-check-circle-o icon"
+              aria-hidden="true"
+              v-if="isFirstNameValid"
+            ></i>
             <input
-              v-model="firstName"
+              class="input-field"
               type="text"
               placeholder="First Name"
-              @input="checkName('firstName')"
-              required
+              v-model="firstName"
             />
-            <div class="form-group" :class="{ success: lastNameValid }">
-              <input
-                v-model="lastName"
-                type="text"
-                placeholder="Last Name"
-                @input="checkName('lastName')"
-                required
-              />
-            </div>
-            <div
-              class="form-group"
-              :class="{ error: !emailValid, success: emailValid }"
-            >
-              <input
-                v-model="email"
-                type="email"
-                placeholder="Email"
-                @input="checkEmail"
-                required
-              />
-            </div>
+          </div>
+          <div class="input-icons">
+            <i
+              class="fa fa-check-circle-o icon"
+              aria-hidden="true"
+              v-if="isLastNameValid"
+            ></i>
+            <input
+              class="input-field"
+              type="text"
+              placeholder="Last Name"
+              v-model="lastName"
+            />
+          </div>
+          <div class="input-icons">
+            <i
+              class="fa fa-check-circle-o icon"
+              aria-hidden="true"
+              v-if="isEmailValid"
+            ></i>
+            <input
+              class="input-field"
+              type="text"
+              placeholder="E-Mail"
+              v-model="email"
+            />
           </div>
         </div>
-        <div class="form-group">
-          <textarea v-model="message" placeholder="Message" required></textarea>
-        </div>
+        <textarea
+          class="message"
+          type="text"
+          placeholder="Your Message"
+          v-model="message"
+        >
+        </textarea>
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" class="btn">SEND THAT MAIL</button>
     </form>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data: function () {
     return {
       firstName: "",
       lastName: "",
       email: "",
-      message: "",
-      emailValid: false,
-      firstNameValid: false,
-      lastNameValid: false,
     };
   },
+  computed: {
+    isFirstNameValid() {
+      return this.firstName.trim() !== "";
+    },
+    isLastNameValid() {
+      return this.lastName.trim() !== "";
+    },
+    isEmailValid() {
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      return emailRegex.test(this.email);
+    },
+  },
   methods: {
-    checkEmail() {
-      this.emailValid = this.validateEmail(this.email);
-    },
-    checkName(name) {
-      const value = this[name];
-      this[`${name}Valid`] = value.trim().length > 0;
-    },
     submitForm() {
-      // Perform form submission logic here
-      // You can check if emailValid, firstNameValid, and lastNameValid are true before submission
-      if (!this.emailValid || !this.firstNameValid || !this.lastNameValid) {
-        return;
+      if (this.isFirstNameValid && this.isLastNameValid) {
+        alert("Form submitted successfully!");
+      } else {
+        alert("Please enter both a first name and a last name.");
       }
-
-      // Reset form fields if needed
-      this.firstName = "";
-      this.lastName = "";
-      this.email = "";
-      this.message = "";
-      this.emailValid = false;
-      this.firstNameValid = false;
-      this.lastNameValid = false;
-    },
-    validateEmail(email) {
-      // Simple email validation
-      const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-      return emailRegex.test(email);
     },
   },
 };
 </script>
-
 <style scoped>
-.contact-form {
-  background-color: rgb(148, 148, 148);
-  height: 85vh;
+.page-title {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  margin: 5% 0% 1%;
+}
+
+.contact-page {
   width: 100vw;
-  margin: 0 auto;
-  padding: 20px;
+  height: 85vh;
+  background-color: grey;
   display: flex;
+  /* justify-content: center; */
+  align-items: center;
   flex-direction: column;
+}
+.form-contact {
+  width: 40%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
   align-items: center;
 }
-.wrapper {
+.form-content {
   display: flex;
   flex-direction: row;
+  /* justify-content: space-between; */
+  gap: 10%;
   width: 100%;
-  background-color: red;
+  height: 50%;
 }
-#form {
-  width: 60%;
+.input-icons i {
+  position: absolute;
+  right: 0;
 }
-.columns {
+.input-icons {
+  position: relative;
+  width: 100%;
+  height: 15%;
+  /* margin-bottom: 10px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-}
-.form-group {
-  margin-bottom: 20px;
+  flex-direction: column; */
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
-  /* width: 100%; */
+.input-wrapper {
+  /* position: relative; */
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 10px;
+  height: 100%;
+  /* background-color: green; */
+}
+
+.icon {
   padding: 10px;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s;
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  color: rgb(114, 212, 49);
 }
 
-.error {
-  border-color: red !important;
+.input-field {
+  width: 100%;
+  padding: 10px;
+  text-align: start;
+  height: 100%;
+  color: rgb(114, 212, 49) !important;
+  font-size: medium;
+  border-radius: 5px;
+  border: 0;
+  /* display: flex; */
 }
-
-.success {
-  border-color: green !important;
+.message {
+  width: 45%;
+  padding: 10px;
+  font-size: medium;
+  border-radius: 5px;
+  border: 0;
+  text-align: left;
+  height: 100%;
 }
-
-input[type="text"].success:focus,
-input[type="email"].success:focus {
-  border-color: green !important;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
+.btn {
+  background-color: #ffd700;
+  color: black;
   border: none;
+  border-radius: 5px;
+  height: 12%;
+  width: 50%;
+  font-size: 18px;
   cursor: pointer;
 }
-
-button:hover {
-  background-color: #0056b3;
+.btn:hover {
+  background-color: #dd9804;
+}
+@media (max-width: 768px) {
+  .form-contact {
+    width: 100%;
+    height: 70%;
+    justify-content: space-around;
+    gap: 1%;
+  }
+  .form-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .message {
+    width: 80%;
+  }
+  .input-wrapper {
+    width: 80%;
+  }
 }
 </style>

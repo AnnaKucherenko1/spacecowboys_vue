@@ -65,7 +65,7 @@
 }
 
 .learn-more-button {
-  background-color: rgb(255, 238, 0);
+  background-color: #ffd700;
   color: black;
   border: none;
   border-radius: 5px;
@@ -76,6 +76,6 @@
 }
 
 .learn-more-button:hover {
-  background-color: #ffd700;
+  background-color: #dd9804;
 }
 </style>
