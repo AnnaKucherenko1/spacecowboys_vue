@@ -1,11 +1,13 @@
 <template>
   <div class="page-container">
     <div class="page-title">A FEW FACTS ABOUT US</div>
-    <p class="page-content">
+    <div class="page-content">
       Before you do business with us,
       <br />
-      you might want to know a little bit more about our company
-    </p>
+      you might want to know a little bit more
+      <br class="mobile-break" />
+      about our company
+    </div>
     <div class="container-row">
       <div class="container">
         <div class="svg">
@@ -53,34 +55,35 @@ export default {
 
 <style scoped>
 .page-container {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   padding: 20px;
+  box-sizing: border-box;
   height: 90vh;
   width: 100vw;
   background-color: #afafaf;
 }
 
 .page-title {
+  width: 100%;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 38px;
-  margin: 3% 0% 1%;
 }
 
 .page-content {
-  font-family: "Montserrat", sans-serif;
+  text-align: center;
   font-weight: 300;
   font-size: 18px;
-  margin-bottom: 20px;
 }
 
 .container-row {
   display: flex;
   gap: 20px;
-  height: 80%;
+  height: auto;
   justify-content: center;
-  margin-top: 7%;
+  align-items: center;
 }
 .svg {
   position: relative;
@@ -92,20 +95,19 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: yellow;
-  margin-bottom: -30px;
 }
 .container {
   width: 20%;
-  height: 50%;
+  height: 400px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  padding: 20px;
+  padding: 15px;
+  box-sizing: border-box;
   text-align: center;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
+  justify-content: space-around;
   flex-direction: column;
-  /* background-color: blue; */
 }
 
 .container:hover {
@@ -113,29 +115,56 @@ export default {
 }
 
 .container-title {
-  font-family: "Montserrat", sans-serif;
+  height: 25%;
   font-weight: 700;
   font-size: 24px;
-  margin: 20px;
 }
 
 .container-text {
-  font-family: "Montserrat", sans-serif;
+  height: 50%;
   font-weight: 300;
-  /* font-size: 24px; */
   font-size: 16px;
   padding: 20px;
 }
 
-@media (max-width: 768px) {
-  .container-row {
-    flex-direction: column;
+@media screen and (min-width: 768px) {
+  .mobile-break {
+    display: none;
   }
+}
+
+@media (max-width: 768px) {
   .page-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    height: 170vh;
+    gap: 20px;
+  }
+
+  .container-row {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    margin-block: 5%;
+  }
+
+  .page-title {
+    font-size: 25px;
+  }
+
+  .page-content {
+    font-size: 15px;
+  }
+
+  .container {
+    width: 90%;
+    height: 30%;
+  }
+
+  .svg {
+    top: calc(10% - 80px);
   }
 }
 </style>

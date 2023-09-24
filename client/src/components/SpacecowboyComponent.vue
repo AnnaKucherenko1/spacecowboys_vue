@@ -18,29 +18,26 @@
 
 <style scoped>
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
   background-image: url("@/assets/images/hero.jpg");
+  backdrop-filter: rgba(0, 0, 0, 0.384);
   background-size: cover;
-  background-color: rgba(0, 0, 0, 0.384);
   width: 100vw;
   height: 100vh;
 }
 
 .content-container {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.397);
   display: flex;
   flex-direction: column;
-  right: 0;
-  left: 0;
   gap: 20%;
   justify-content: center;
   align-items: center;
 }
 .text {
+  margin-top: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,8 +46,6 @@
   width: 40%;
 }
 
-.centered-content {
-}
 .centered-text {
   text-align: center;
   font-family: "Montserrat", sans-serif;

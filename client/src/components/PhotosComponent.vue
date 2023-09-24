@@ -1,7 +1,10 @@
 <template>
   <div class="wrapper">
-    <h1>Title</h1>
-    <p>Some text here...</p>
+    <h1>LOOK AT ALL <br class="mobile-break" />THOSE STARTS!</h1>
+    <p>
+      Some impressions from our trips to <br class="mobile-break" />frickin
+      outer space, enjoy!
+    </p>
     <div class="image-container">
       <div
         v-for="(image, index) in images"
@@ -28,12 +31,12 @@
           <p>Well, this was amazing!</p>
         </div>
         <span class="nav-button prev" @click="showPrevImage">
-          <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
-          PREVIOUS IMAGE
+          <i class="fa fa-chevron-circle-left circle" aria-hidden="true"></i>
+          <div class="mobile-hidden">PREVIOUS IMAGE</div>
         </span>
         <span class="nav-button next" @click="showNextImage">
-          <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-          NEXT IMAGE
+          <i class="fa fa-chevron-circle-right circle" aria-hidden="true"></i>
+          <div class="mobile-hidden">NEXT IMAGE</div>
         </span>
       </div>
     </div>
@@ -91,17 +94,26 @@ export default {
 </script>
 <style>
 .wrapper {
+  display: flex;
+  padding-block: 3%;
+  padding-inline: 2%;
+  box-sizing: border-box;
+  flex-direction: column;
+  color: white;
+  background-color: rgb(7, 6, 6);
   height: 90vh;
   width: 100vw;
 }
 h1 {
-  font-size: 24px;
+  font-size: 40px;
   margin-bottom: 20px;
+  align-self: center;
 }
 
 p {
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 30px;
+  align-self: center;
 }
 
 .image-container {
@@ -111,7 +123,7 @@ p {
 }
 
 .image-item {
-  flex: 0 0 calc(16.666% - 10px);
+  width: 15%;
   margin-bottom: 20px;
   position: relative;
   cursor: pointer;
@@ -142,30 +154,23 @@ p {
   justify-content: center;
   flex-direction: column;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 999;
+  z-index: 100;
 }
 
-/* .image-modal.show {
-  display: block;
-} */
+.close-button {
+  margin-bottom: 25px;
+  font-size: 40px;
+}
 
 .modal-content {
-  /* position: absolute; */
-  /* top: 50%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%); */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   color: white;
-  /* width: 60%;
-  height: 60%; */
 }
 
 .close-button {
-  /* position: absolute; */
-  /* margin-top: 3%; */
   cursor: pointer;
   font-size: 24px;
   color: white;
@@ -173,17 +178,26 @@ p {
 }
 
 .nav-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
   cursor: pointer;
   position: absolute;
   top: 50%;
-  font-size: 24px;
   color: white;
-  transform: translateY(-50%);
+  font-size: 15px;
+}
+
+.circle {
+  font-size: 30px;
 }
 .selected-image {
-  width: 70%;
+  width: 80%;
   height: 40%;
 }
+
 .nav-button.prev {
   left: 10px;
 }
@@ -191,7 +205,33 @@ p {
 .nav-button.next {
   right: 10px;
 }
+
+@media screen and (min-width: 768px) {
+  .mobile-break {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
+  h1 {
+    text-align: center;
+    font-size: 28px;
+  }
+
+  .selected-image {
+    width: 70%;
+    height: 40%;
+  }
+
+  .mobile-hidden {
+    display: none;
+  }
+
+  p {
+    font-size: 17px;
+    text-align: center;
+  }
+
   .image-item {
     flex: 0 0 calc(33.33% - 10px);
     margin-bottom: 20px;

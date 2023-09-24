@@ -13,15 +13,15 @@
     </div>
 
     <div class="mobile-nav">
-      <button @click="toggleMobileMenu" class="mobile-button">
-        {{ isMobileMenuOpen ? "close" : "open" }}
-      </button>
-      <div v-if="isMobileMenuOpen" class="mobile-menu">
+      <!-- <div v-if="isMobileMenuOpen" class="mobile-menu">
         <a>ABOUT US</a>
         <a>THE TEAM</a>
         <a>IMPRESSIONS</a>
         <a>CONTACT</a>
-      </div>
+      </div> -->
+      <button @click="toggleMobileMenu" class="mobile-button">
+        {{ isMobileMenuOpen ? "close" : "Menu" }}
+      </button>
     </div>
   </nav>
 </template>
@@ -52,13 +52,6 @@ export default {
     window.removeEventListener("resize", this.checkScreenSize);
   },
   methods: {
-    // toggleNavClass() {
-    //   if (this.isStickyActive == false) {
-    //     return "nav";
-    //   } else {
-    //     return "sticky-nav";
-    //   }
-    // },
     toggleMobileMenu() {
       this.isMobileMenuOpen = !this.isMobileMenuOpen;
     },
@@ -101,28 +94,9 @@ export default {
   gap: 20px;
 }
 
-.desktop-nav a {
-}
-
-.mobile-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  height: 100vh;
-  width: 100vw;
-  /* background-color: red; */
-}
-
-.mobile-button {
-  display: none;
-}
-
 .mobile-menu {
   position: relative;
   left: calc(0%, -50px);
-  /* top: 0;
-  left: 0; */
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 101;
   display: flex;
@@ -145,14 +119,45 @@ a:hover {
   cursor: pointer;
 }
 
+@media screen and (min-width: 768px) {
+  .mobile-nav {
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    /* align-items: center; */
+    /* padding: 10px;
+    box-sizing: border-box; */
+    /* background-color: red;
+    height: 100vh;
+    width: 60%;
+    z-index: 500; */
+  }
+  .mobile-nav {
+    display: none;
+  }
+
+  .mobile-button {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
+  #nav {
+    justify-content: space-between;
+  }
+
   .desktop-nav {
     display: none;
   }
 
   .mobile-button {
-    display: block;
-    z-index: 1;
+    width: 30%;
+    height: 4%;
+    padding: 0;
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    background: none;
+    background-color: transparent;
   }
 
   .mobile-nav {

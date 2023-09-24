@@ -89,14 +89,12 @@ export default {
 
 .page-title {
   text-align: center;
-  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 38px;
   margin: 3% 0% 1%;
 }
 
 .page-content {
-  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 18px;
   margin-bottom: 20px;
@@ -130,7 +128,6 @@ export default {
   flex-direction: column;
 }
 .quote-text {
-  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-style: italic;
   font-size: 18px;

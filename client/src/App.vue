@@ -36,14 +36,10 @@ body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  /* overflow-x: hidden; */
+  font-family: "Montserrat", sans-serif;
 }
 
 #app {
   overflow-x: hidden;
-}
-
-.content {
-  width: 100%;
 }
 </style>
