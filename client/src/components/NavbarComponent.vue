@@ -1,5 +1,5 @@
 <template>
-  <nav id="nav" :class="{ sticky: active }">
+  <nav id="nav" :class="{ sticky: isStickyActive }">
     <div class="icon">
       <svg>
         <image href="/rocket_launch.svg" />
@@ -30,7 +30,7 @@
 export default {
   data() {
     return {
-      active: false,
+      isStickyActive: false,
       isMobileMenuOpen: false,
       isSmallScreen: false,
     };
@@ -39,9 +39,9 @@ export default {
     window.document.onscroll = () => {
       let navBar = document.getElementById("nav");
       if (window.scrollY > navBar.offsetTop) {
-        this.active = true;
+        this.isStickyActive = true;
       } else {
-        this.active = false;
+        this.isStickyActive = false;
       }
     };
     this.checkScreenSize();
@@ -52,13 +52,13 @@ export default {
     window.removeEventListener("resize", this.checkScreenSize);
   },
   methods: {
-    toggleNavClass() {
-      if (this.active == false) {
-        return "nav";
-      } else {
-        return "sticky-nav";
-      }
-    },
+    // toggleNavClass() {
+    //   if (this.isStickyActive == false) {
+    //     return "nav";
+    //   } else {
+    //     return "sticky-nav";
+    //   }
+    // },
     toggleMobileMenu() {
       this.isMobileMenuOpen = !this.isMobileMenuOpen;
     },
@@ -78,10 +78,10 @@ export default {
   height: 4%;
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 100;
 }
-#nav.sticky {
+.sticky {
   transition: 150ms;
   background-color: #333333;
   height: 4%;
