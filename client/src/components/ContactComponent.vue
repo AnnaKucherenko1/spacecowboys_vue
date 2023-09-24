@@ -100,7 +100,7 @@ export default {
 
 .contact-page {
   width: 100vw;
-  height: 85vh;
+  height: 90vh;
   background-color: grey;
   display: flex;
   /* justify-content: center; */

@@ -38,7 +38,7 @@ export default {
 .page-container {
   text-align: center;
   padding: 20px;
-  height: 85vh;
+  height: 90vh;
   width: 100vw;
   background-color: #afafaf;
 }

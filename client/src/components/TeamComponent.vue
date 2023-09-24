@@ -27,6 +27,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "TeamPage",
@@ -70,7 +71,7 @@ export default {
 .team-page {
   text-align: center;
   padding: 20px;
-  height: 85vh;
+  height: 90vh;
   right: 0;
   left: 0;
   width: 100vw;

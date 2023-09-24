@@ -1,8 +1,9 @@
 <template>
   <NavbarComponent />
   <SpacecowboyComponent />
-  <!-- <FactsComponent /> -->
+  <FactsComponent />
   <!-- <TeamComponent /> -->
+  <PhotosComponent />
   <ContactComponent />
 </template>
 
@@ -13,6 +14,7 @@ import SpacecowboyComponent from "./components/SpacecowboyComponent.vue";
 import FactsComponent from "./components/FactsComponent.vue";
 import TeamComponent from "./components/TeamComponent.vue";
 import ContactComponent from "./components/ContactComponent.vue";
+import PhotosComponent from "./components/PhotosComponent.vue";
 
 @Options({
   components: {
@@ -21,6 +23,7 @@ import ContactComponent from "./components/ContactComponent.vue";
     FactsComponent,
     TeamComponent,
     ContactComponent,
+    PhotosComponent,
   },
 })
 export default class App extends Vue {}
