@@ -2,7 +2,13 @@
   <div class="wrapper">
     <div class="content-container">
       <div class="text">
-        <div class="centered-text">HEY THERE, WE ARE SPACECOWBOY.</div>
+        <div class="centered-text">
+          HEY THERE,
+          <br class="mobile-break" />
+          WE ARE
+          <br class="mobile-break" />
+          SPACECOWBOY
+        </div>
         <div class="centred-small">- AN INDEPENDENT SPACE AGENCY -</div>
       </div>
       <button class="learn-more-button">Learn More</button>
@@ -15,12 +21,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100%;
-  width: 100%; */
   background-image: url("@/assets/images/hero.jpg");
   background-size: cover;
-  /* background-repeat: no-repeat; */
-  /* background-attachment: fixed; */
   background-color: rgba(0, 0, 0, 0.384);
   width: 100vw;
   height: 100vh;
@@ -40,10 +42,11 @@
 }
 .text {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 5px;
   width: 40%;
-  /* background-color: red; */
 }
 
 .centered-content {
@@ -77,5 +80,34 @@
 
 .learn-more-button:hover {
   background-color: #dd9804;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-break {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .text {
+    width: 90%;
+  }
+  .centered-text {
+    font-size: 30px;
+  }
+
+  .centred-small {
+    font-size: 15px;
+  }
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .learn-more-button {
+    width: 50%;
+  }
 }
 </style>

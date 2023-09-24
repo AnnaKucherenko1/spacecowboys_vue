@@ -2,7 +2,7 @@
   <NavbarComponent />
   <SpacecowboyComponent />
   <FactsComponent />
-  <!-- <TeamComponent /> -->
+  <TeamComponent />
   <PhotosComponent />
   <ContactComponent />
 </template>

@@ -65,7 +65,7 @@ export default {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 38px;
-  margin: 5% 0% 1%;
+  margin: 3% 0% 1%;
 }
 
 .page-content {

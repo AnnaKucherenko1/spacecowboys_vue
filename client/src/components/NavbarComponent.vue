@@ -110,6 +110,8 @@ export default {
   align-items: center;
   padding: 10px;
   height: 100vh;
+  width: 100vw;
+  /* background-color: red; */
 }
 
 .mobile-button {
@@ -117,12 +119,15 @@ export default {
 }
 
 .mobile-menu {
-  position: fixed;
-  top: 0;
+  position: relative;
+  left: calc(0%, -50px);
+  /* top: 0;
+  left: 0; */
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 101;
   display: flex;
   height: 100vh;
+  width: 100vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
