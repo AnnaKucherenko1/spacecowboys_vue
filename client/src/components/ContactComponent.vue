@@ -46,6 +46,7 @@
               aria-hidden="true"
               v-if="isEmailValid"
             ></i>
+            <!-- <i class="fa fa-times-circle-o" aria-hidden="true" v-else></i> -->
             <input
               class="input-field"
               type="text"

@@ -13,11 +13,9 @@
           :key="index"
           @click="toggleCard(member)"
           :class="{ flipped: member.flipped }"
+          :style="{ transform: `translateX(-${currentIndex * cardWidth}px)` }"
         >
-          <div
-            class="card-inner"
-            :style="{ transform: `translateX(-${currentIndex * cardWidth}px)` }"
-          >
+          <div class="card-inner">
             <div class="front">
               <img
                 class="member-photo"
@@ -31,12 +29,12 @@
                 <div>missions: {{ member.missions }}</div>
               </div>
             </div>
-            <!-- <div class="back">
+            <div class="back">
               <div class="quote-content">
                 <p>{{ member.name.split(" ")[0] }}'S FAMOUS QUOTE:</p>
                 <div class="quote-text">"{{ member.quote }}"</div>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -166,12 +164,11 @@ export default {
   transform: rotateY(180deg);
 }
 
-.back {
-  transform: rotateY(180deg);
-  background: linear-gradient(to right, #333, #000);
-  width: 100%;
-  height: 150px;
-  border-radius: 5px;
+/* visibility: hidden; is a hack because  because i dont seem to get
+backface visibility working */
+.front.flipped {
+  visibility: hidden;
+  transition: transform 0.8s;
 }
 
 .team-cards {
@@ -183,24 +180,48 @@ export default {
 }
 
 .team-card {
-  width: 30%;
-  height: 45%;
+  width: 300px;
+  height: 200px;
   color: white;
-  -webkit-perspective: 1000;
-  -moz-perspective: 1000;
-  perspective: 1000;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
   cursor: pointer;
-  /* position: relative; */
-  /* perspective: 1000px;
-  transition: transform 0.5s; */
+  transition: transform 0.5s;
+  perspective: 1000px;
 }
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
 .front {
-  background-color: rgba(255, 255, 255, 0.288);
+  position: absolute;
+  background-color: rgba(59, 59, 59, 0.123);
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 150px;
   border-radius: 5px;
+  z-index: 100;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* backface visibility is not working for me, hides both sides :-( */
+.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(to right, #333, #000);
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+  /* backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; */
 }
 .card-buttons {
   display: none;

@@ -5,6 +5,7 @@
   <TeamComponent />
   <PhotosComponent />
   <ContactComponent />
+  <FooterComponent />
 </template>
 
 <script lang="ts">
@@ -15,6 +16,7 @@ import FactsComponent from "./components/FactsComponent.vue";
 import TeamComponent from "./components/TeamComponent.vue";
 import ContactComponent from "./components/ContactComponent.vue";
 import PhotosComponent from "./components/PhotosComponent.vue";
+import FooterComponent from "./components/FooterComponent.vue";
 
 @Options({
   components: {
@@ -24,6 +26,7 @@ import PhotosComponent from "./components/PhotosComponent.vue";
     TeamComponent,
     ContactComponent,
     PhotosComponent,
+    FooterComponent,
   },
 })
 export default class App extends Vue {}

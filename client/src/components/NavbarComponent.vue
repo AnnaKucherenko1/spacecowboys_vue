@@ -181,11 +181,11 @@ export default {
 }
 
 a:hover {
-  color: yellow;
+  color: #ffd700;
   cursor: pointer;
 }
 .desktop-nav a.active {
-  color: yellow;
+  color: #ffd700;
 }
 
 @media screen and (min-width: 768px) {

@@ -94,7 +94,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: yellow;
+  background-color: #ffd700;
 }
 .container {
   width: 20%;
