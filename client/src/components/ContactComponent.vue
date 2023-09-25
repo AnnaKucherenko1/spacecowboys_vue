@@ -48,7 +48,7 @@
             ></i>
             <input
               :class="
-                isTypingEmail
+                isTypingLastName
                   ? isLastNameValid
                     ? 'input-field'
                     : 'input-field invalid'
@@ -61,7 +61,7 @@
             />
           </div>
           <div v-if="!isEmailValid && isTypingEmail" class="error-message">
-            Sorry, that's not a valid email
+            Sorry, that's no valid E-Mail adress
           </div>
           <div class="input-icons">
             <i
