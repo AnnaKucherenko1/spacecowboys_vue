@@ -66,6 +66,7 @@ export default {
       isMobileMenuOpen: false,
       isSmallScreen: false,
       activeSection: null,
+      offsetPercentage: 15,
     };
   },
   methods: {
@@ -92,7 +93,7 @@ export default {
         id: section,
         offsetTop:
           document.getElementById(section).offsetTop -
-          (10 * window.innerHeight) / 100,
+          (this.offsetPercentage * window.innerHeight) / 100,
       }));
       let activeSection = "";
       for (const { id, offsetTop } of sectionPositions) {
