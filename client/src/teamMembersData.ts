@@ -1,0 +1,42 @@
+export const teamMembersData = [
+  {
+    name: "Robert Kucherenko",
+    position: "IMPORTANT PERSON",
+    age: 40,
+    missions: 1,
+    photo: require("@/assets/images/cosmonauts/cosmonaut.jpg"),
+    quote: `This is a small step for me, but a big step for, like, a small kid`,
+  },
+  {
+    name: "RICHIE FARHEM",
+    position: "ENGINEER",
+    age: 48,
+    missions: 13,
+    photo: require("@/assets/images/cosmonauts/cosmonaut (6).jpg"),
+    quote: `I may be just one person, but I'm one person who can eat a whole pizza.`,
+  },
+  {
+    name: "JOHN SIRACHA",
+    position: "GUNSLINGER",
+    age: 47,
+    missions: 13,
+    photo: require("@/assets/images/cosmonauts/cosmonaut (2).jpg"),
+    quote: `I want my children to have all the things I couldn't afford. Then I want to move in with them.`,
+  },
+  {
+    name: "BEAT McNAMERA",
+    position: "CAPTAIN",
+    age: 71,
+    missions: 13,
+    photo: require("@/assets/images/cosmonauts/cosmonaut (3).jpg"),
+    quote: `There is no sunrise so beautiful that it is worth waking me up to see it.`,
+  },
+  {
+    name: "AL SVERINGE",
+    position: "CEO",
+    age: 76,
+    missions: 13,
+    photo: require("@/assets/images/cosmonauts/cosmonaut (4).jpg"),
+    quote: `Common sense is like deodorant. The people who need it most never use it.`,
+  },
+];
