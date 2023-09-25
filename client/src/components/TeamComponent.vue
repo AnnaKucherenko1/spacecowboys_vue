@@ -1,5 +1,5 @@
 <template>
-  <div class="team-page">
+  <div id="team" class="team-page">
     <div class="page-title">THE TEAM</div>
     <p class="page-content">
       Yep, that's us. Six fine fellows, eager to get on the next adventure.
@@ -242,7 +242,6 @@ export default {
   margin-bottom: 10px;
 }
 
-/* Media query for small screens (phones) */
 @media (max-width: 768px) {
   .team-cards-container {
     width: auto;

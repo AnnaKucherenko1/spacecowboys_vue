@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div id="photos" class="wrapper">
     <h1>LOOK AT ALL <br class="mobile-break" />THOSE STARTS!</h1>
     <p>
       Some impressions from our trips to <br class="mobile-break" />frickin

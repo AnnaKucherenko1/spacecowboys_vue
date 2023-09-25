@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-page">
+  <div id="contact" class="contact-page">
     <div class="page-title">SAY HELLO</div>
     <div>
       <div class="page-text">

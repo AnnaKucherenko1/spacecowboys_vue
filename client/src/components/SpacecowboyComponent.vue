@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div id="spacecowboy" class="wrapper">
     <div class="content-container">
       <div class="text">
         <div class="centered-text">
@@ -11,10 +11,29 @@
         </div>
         <div class="centred-small">- AN INDEPENDENT SPACE AGENCY -</div>
       </div>
-      <button class="learn-more-button">Learn More</button>
+      <button class="learn-more-button" @click="scrollToSection('facts')">
+        Learn More
+      </button>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      let navbar = window.innerHeight * 0.1;
+      let elementPosition = element.getBoundingClientRect().top;
+      let offsetPosition = elementPosition + window.pageYOffset - navbar;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    },
+  },
+};
+</script>
 
 <style scoped>
 .wrapper {

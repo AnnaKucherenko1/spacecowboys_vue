@@ -6,21 +6,53 @@
       </svg>
     </div>
     <div class="desktop-nav">
-      <a>ABOUT US</a>
-      <a>THE TEAM</a>
-      <a>IMPRESSIONS</a>
-      <a>CONTACT</a>
+      <a
+        @click="scrollToSection('facts')"
+        :class="{ active: activeSection === 'facts' }"
+        >ABOUT US</a
+      >
+      <a
+        @click="scrollToSection('team')"
+        :class="{ active: activeSection === 'team' }"
+        >THE TEAM</a
+      >
+      <a
+        @click="scrollToSection('photos')"
+        :class="{ active: activeSection === 'photos' }"
+        >IMPRESSIONS</a
+      >
+      <a
+        @click="scrollToSection('contact')"
+        :class="{ active: activeSection === 'contact' }"
+        >CONTACT</a
+      >
     </div>
 
     <div class="mobile-nav">
-      <!-- <div v-if="isMobileMenuOpen" class="mobile-menu">
-        <a>ABOUT US</a>
-        <a>THE TEAM</a>
-        <a>IMPRESSIONS</a>
-        <a>CONTACT</a>
-      </div> -->
+      <div v-if="isMobileMenuOpen" class="mobile-menu">
+        <a
+          @click="scrollToSection('facts')"
+          :class="{ active: activeSection === 'facts' }"
+          >ABOUT US</a
+        >
+        <a
+          @click="scrollToSection('team')"
+          :class="{ active: activeSection === 'team' }"
+          >THE TEAM</a
+        >
+        <a
+          @click="scrollToSection('photos')"
+          :class="{ active: activeSection === 'photos' }"
+          >IMPRESSIONS</a
+        >
+        <a
+          @click="scrollToSection('contact')"
+          :class="{ active: activeSection === 'contact' }"
+          >CONTACT</a
+        >
+      </div>
       <button @click="toggleMobileMenu" class="mobile-button">
-        {{ isMobileMenuOpen ? "close" : "Menu" }}
+        {{ isMobileMenuOpen ? "x close" : "Menu" }}
       </button>
     </div>
   </nav>
@@ -33,7 +65,43 @@ export default {
       isStickyActive: false,
       isMobileMenuOpen: false,
       isSmallScreen: false,
+      activeSection: null,
     };
+  },
+  methods: {
+    toggleMobileMenu() {
+      this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    },
+    checkScreenSize() {
+      this.isSmallScreen = window.innerWidth <= 768;
+    },
+    scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      let navbar = window.innerHeight * 0.1;
+      let elementPosition = element.getBoundingClientRect().top;
+      let offsetPosition = elementPosition + window.pageYOffset - navbar;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    },
+    updateActiveSection() {
+      const scrollY = window.scrollY;
+      const sections = ["spacecowboy", "facts", "team", "photos", "contact"];
+      const sectionPositions = sections.map((section) => ({
+        id: section,
+        offsetTop:
+          document.getElementById(section).offsetTop -
+          (10 * window.innerHeight) / 100,
+      }));
+      let activeSection = "";
+      for (const { id, offsetTop } of sectionPositions) {
+        if (scrollY >= offsetTop) {
+          activeSection = id;
+        }
+      }
+      this.activeSection = activeSection;
+    },
   },
   mounted() {
     window.document.onscroll = () => {
@@ -44,20 +112,14 @@ export default {
         this.isStickyActive = false;
       }
     };
+    window.addEventListener("scroll", this.updateActiveSection);
     this.checkScreenSize();
     window.addEventListener("resize", this.checkScreenSize);
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("resize", this.checkScreenSize);
-  },
-  methods: {
-    toggleMobileMenu() {
-      this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    },
-    checkScreenSize() {
-      this.isSmallScreen = window.innerWidth <= 768;
-    },
+    window.removeEventListener("scroll", this.updateActiveSection);
   },
 };
 </script>
@@ -84,6 +146,7 @@ export default {
   height: 25px;
   display: flex;
   justify-content: center;
+  z-index: 199;
 }
 
 .desktop-nav {
@@ -95,7 +158,10 @@ export default {
 }
 
 .mobile-menu {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   left: calc(0%, -50px);
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 101;
@@ -117,6 +183,9 @@ export default {
 a:hover {
   color: yellow;
   cursor: pointer;
+}
+.desktop-nav a.active {
+  color: yellow;
 }
 
 @media screen and (min-width: 768px) {
@@ -143,6 +212,7 @@ a:hover {
 @media (max-width: 768px) {
   #nav {
     justify-content: space-between;
+    width: 90vw;
   }
 
   .desktop-nav {
@@ -150,14 +220,15 @@ a:hover {
   }
 
   .mobile-button {
-    width: 30%;
-    height: 4%;
-    padding: 0;
+    width: 60px;
+    height: 30px;
+    margin-right: 20px;
     border: 1px solid white;
     border-radius: 3px;
     color: white;
     background: none;
     background-color: transparent;
+    z-index: 199;
   }
 
   .mobile-nav {

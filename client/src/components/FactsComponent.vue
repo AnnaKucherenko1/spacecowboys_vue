@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container">
+  <div id="facts" class="page-container">
     <div class="page-title">A FEW FACTS ABOUT US</div>
     <div class="page-content">
       Before you do business with us,
