@@ -1,12 +1,14 @@
 <template>
   <div id="facts" class="page-container">
-    <div class="page-title">A FEW FACTS ABOUT US</div>
-    <div class="page-content">
-      Before you do business with us,
-      <br />
-      you might want to know a little bit more
-      <br class="mobile-break" />
-      about our company
+    <div>
+      <div class="page-title">A FEW FACTS ABOUT US</div>
+      <div class="page-content">
+        Before you do business with us,
+        <br />
+        you might want to know a little bit more
+        <br class="mobile-break" />
+        about our company
+      </div>
     </div>
     <div class="container-row">
       <div class="container">
@@ -49,7 +51,7 @@
 
 <script>
 export default {
-  name: "YourComponent",
+  name: "FactsComponent",
 };
 </script>
 
@@ -76,6 +78,7 @@ export default {
   text-align: center;
   font-weight: 300;
   font-size: 18px;
+  padding-top: 30px;
 }
 
 .container-row {

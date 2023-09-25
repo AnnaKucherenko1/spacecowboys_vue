@@ -67,7 +67,6 @@ export default {
 
 .centered-text {
   text-align: center;
-  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 48px;
   color: white;
@@ -75,7 +74,6 @@ export default {
 
 .centred-small {
   text-align: center;
-  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 24px;
   color: white;
@@ -88,6 +86,7 @@ export default {
   border-radius: 5px;
   height: 6%;
   width: 15%;
+  font-weight: 700;
   font-size: 18px;
   cursor: pointer;
 }

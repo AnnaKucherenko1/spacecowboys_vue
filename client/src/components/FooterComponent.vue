@@ -1,15 +1,11 @@
 <template>
   <footer class="footer">
-    <div class="copyright">COPYRIGHT</div>
+    <div class="copyright">Copyright © 2023</div>
     <div class="cowboy">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-      >
-        <!-- Your rocket SVG content here -->
-      </svg>
+      SPACE
+      <div class="icon">
+        <img src="@/assets/svg/rocket.svg" alt="rocket" />
+      </div>
       COWBOY
     </div>
   </footer>
@@ -23,23 +19,32 @@ export default {
 
 <style scoped>
 .footer {
-  height: 10vh;
+  height: 100px;
+  bottom: 0;
   background-color: #333;
-  color: white;
+  color: rgb(100, 100, 100);
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 0 20px;
+  bottom: 0;
+  left: 0;
 }
 
 .copyright {
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 20px;
 }
 
 .cowboy {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-weight: 700;
+  font-size: 18px;
 }
-
-/* Add your custom styles for the rocket SVG here */
+.icon {
+  width: 30px;
+  height: 30px;
+}
 </style>

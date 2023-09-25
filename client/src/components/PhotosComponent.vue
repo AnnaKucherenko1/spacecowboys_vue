@@ -100,7 +100,8 @@ export default {
   box-sizing: border-box;
   flex-direction: column;
   color: white;
-  background-color: rgb(7, 6, 6);
+  align-items: center;
+  background-color: rgb(26, 25, 25);
   height: 90vh;
   width: 100vw;
 }
@@ -120,6 +121,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 80%;
 }
 
 .image-item {

@@ -16,12 +16,17 @@
         <div class="input-wrapper">
           <div class="input-icons">
             <i
-              class="fa fa-check-circle-o icon"
+              class="fa fa-check-circle-o icon valid"
               aria-hidden="true"
               v-if="isFirstNameValid"
             ></i>
+            <i
+              class="fa fa-times-circle-o icon invalid"
+              aria-hidden="true"
+              v-else
+            ></i>
             <input
-              class="input-field"
+              :class="isFirstNameValid ? 'input-field' : 'input-field invalid'"
               type="text"
               placeholder="First Name"
               v-model="firstName"
@@ -29,12 +34,17 @@
           </div>
           <div class="input-icons">
             <i
-              class="fa fa-check-circle-o icon"
+              class="fa fa-check-circle-o icon valid"
               aria-hidden="true"
               v-if="isLastNameValid"
             ></i>
+            <i
+              class="fa fa-times-circle-o icon invalid"
+              aria-hidden="true"
+              v-else
+            ></i>
             <input
-              class="input-field"
+              :class="isLastNameValid ? 'input-field' : 'input-field invalid'"
               type="text"
               placeholder="Last Name"
               v-model="lastName"
@@ -42,13 +52,17 @@
           </div>
           <div class="input-icons">
             <i
-              class="fa fa-check-circle-o icon"
+              class="fa fa-check-circle-o icon valid"
               aria-hidden="true"
               v-if="isEmailValid"
             ></i>
-            <!-- <i class="fa fa-times-circle-o" aria-hidden="true" v-else></i> -->
+            <i
+              class="fa fa-times-circle-o icon invalid"
+              aria-hidden="true"
+              v-else
+            ></i>
             <input
-              class="input-field"
+              :class="isEmailValid ? 'input-field' : 'input-field invalid'"
               type="text"
               placeholder="E-Mail"
               v-model="email"
@@ -72,6 +86,7 @@
 
 <script>
 export default {
+  name: "ContactComponent",
   data: function () {
     return {
       firstName: "",
@@ -96,7 +111,7 @@ export default {
       if (this.isFirstNameValid && this.isLastNameValid) {
         alert("Form submitted successfully!");
       } else {
-        alert("Please enter both a first name and a last name.");
+        alert("Please enter first name, last name and an email.");
       }
     },
   },
@@ -165,14 +180,25 @@ export default {
 }
 
 .icon {
-  padding: 10px;
-  width: 50px;
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  padding-right: 5%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: end;
-  color: rgb(114, 212, 49);
+  justify-content: center;
+  z-index: 1;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
 }
 
 .input-field {
@@ -185,6 +211,10 @@ export default {
   font-size: medium;
   border-radius: 5px;
   border: 0;
+}
+
+.input-field.invalid {
+  color: rgb(255, 0, 0) !important;
 }
 
 .message {
@@ -205,9 +235,11 @@ export default {
   border-radius: 5px;
   height: 17%;
   width: 40%;
+  font-weight: 700;
   font-size: 18px;
   cursor: pointer;
 }
+
 .btn:hover {
   background-color: #dd9804;
 }
@@ -239,15 +271,18 @@ export default {
     align-content: center;
     gap: 1%;
   }
+
   .form-content {
     flex-direction: column;
     align-items: center;
     height: 80%;
   }
+
   .message {
     width: 80%;
     height: 50%;
   }
+
   .input-wrapper {
     width: 80%;
   }

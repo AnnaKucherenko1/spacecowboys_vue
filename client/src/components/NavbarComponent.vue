@@ -190,17 +190,6 @@ a:hover {
 
 @media screen and (min-width: 768px) {
   .mobile-nav {
-    /* display: flex; */
-    /* justify-content: flex-end; */
-    /* align-items: center; */
-    /* padding: 10px;
-    box-sizing: border-box; */
-    /* background-color: red;
-    height: 100vh;
-    width: 60%;
-    z-index: 500; */
-  }
-  .mobile-nav {
     display: none;
   }
 
