@@ -17,3 +17,4 @@ To run the application, use the following command:
 ```console
 npm run serve 
 ```
+App running at: http://localhost:8080/
