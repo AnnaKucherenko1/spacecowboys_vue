@@ -192,8 +192,8 @@ backface visibility to work */
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+  /* transition: transform 0.8s; */
+  /* transform-style: preserve-3d; */
 }
 
 .front {
@@ -207,6 +207,7 @@ backface visibility to work */
   z-index: 100;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform: rotateY(0deg);
 }
 
 /* cant get backface visibility to work properly, hides both sides :-( */
@@ -223,7 +224,6 @@ backface visibility to work */
   display: none;
 }
 .team-card.quote {
-  background: linear-gradient(to right, #333, #000);
   flex-direction: column;
 }
 .quote-content {
