@@ -17,57 +17,71 @@
           <div class="input-icons">
             <i
               class="fa fa-check-circle-o icon valid"
-              aria-hidden="true"
-              v-if="isFirstNameValid"
+              v-if="isTypingName && isFirstNameValid"
             ></i>
             <i
               class="fa fa-times-circle-o icon invalid"
-              aria-hidden="true"
-              v-else
+              v-if="isTypingName && !isFirstNameValid"
             ></i>
             <input
-              :class="isFirstNameValid ? 'input-field' : 'input-field invalid'"
+              :class="
+                isTypingName
+                  ? isFirstNameValid
+                    ? 'input-field'
+                    : 'input-field invalid'
+                  : 'input-field'
+              "
               type="text"
               placeholder="First Name"
               v-model="firstName"
+              @input="checkNameValidity"
             />
           </div>
           <div class="input-icons">
             <i
               class="fa fa-check-circle-o icon valid"
-              aria-hidden="true"
-              v-if="isLastNameValid"
+              v-if="isTypingLastName && isLastNameValid"
             ></i>
             <i
               class="fa fa-times-circle-o icon invalid"
-              aria-hidden="true"
-              v-else
+              v-if="isTypingLastName && !isLastNameValid"
             ></i>
             <input
-              :class="isLastNameValid ? 'input-field' : 'input-field invalid'"
+              :class="
+                isTypingEmail
+                  ? isLastNameValid
+                    ? 'input-field'
+                    : 'input-field invalid'
+                  : 'input-field'
+              "
               type="text"
               placeholder="Last Name"
               v-model="lastName"
+              @input="checkLastNameValidity"
             />
           </div>
-          <div v-if="!isEmailValid && isTyping" class="error-message">
+          <div v-if="!isEmailValid && isTypingEmail" class="error-message">
             Sorry, that's not a valid email
           </div>
           <div class="input-icons">
             <i
               class="fa fa-check-circle-o icon valid"
-              aria-hidden="true"
-              v-if="isEmailValid"
+              v-if="isTypingEmail && isEmailValid"
             ></i>
             <i
               class="fa fa-times-circle-o icon invalid"
-              aria-hidden="true"
-              v-else
+              v-if="isTypingEmail && !isEmailValid"
             ></i>
             <input
-              :class="isEmailValid ? 'input-field' : 'input-field invalid'"
+              :class="
+                isTypingEmail
+                  ? isEmailValid
+                    ? 'input-field'
+                    : 'input-field invalid'
+                  : 'input-field'
+              "
               type="text"
-              placeholder="E-Mail"
+              placeholder="Email"
               v-model="email"
               @input="checkEmailValidity"
             />
@@ -96,7 +110,9 @@ export default {
       firstName: "",
       lastName: "",
       email: "",
-      isTyping: false,
+      isTypingName: false,
+      isTypingLastName: false,
+      isTypingEmail: false,
     };
   },
   computed: {
@@ -119,8 +135,14 @@ export default {
         alert("Please enter first name, last name and an email.");
       }
     },
+    checkNameValidity() {
+      this.isTypingName = true;
+    },
+    checkLastNameValidity() {
+      this.isTypingLastName = true;
+    },
     checkEmailValidity() {
-      this.isTyping = true;
+      this.isTypingEmail = true;
     },
   },
 };
@@ -225,6 +247,7 @@ export default {
 
 .input-field.invalid {
   color: rgb(255, 0, 0) !important;
+  outline: 1px solid red;
 }
 
 .message {
