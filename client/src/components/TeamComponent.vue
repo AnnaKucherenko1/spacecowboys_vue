@@ -184,7 +184,6 @@ backface visibility to work */
   perspective: 1000px;
   cursor: pointer;
   transition: transform 0.5s;
-  perspective: 1000px;
   flex-shrink: 0;
 }
 
@@ -237,7 +236,7 @@ backface visibility to work */
   font-weight: 500;
   font-style: italic;
   font-size: 18px;
-  padding-top: 10%;
+  padding: 10% 2% 10% 0%;
   color: rgb(255, 255, 255);
 }
 
@@ -306,6 +305,9 @@ backface visibility to work */
     width: 350px;
     flex-shrink: 0;
   }
+  .back {
+    transform: rotate(0deg);
+  }
   .card-buttons {
     display: flex;
     justify-content: space-between;
@@ -342,6 +344,7 @@ backface visibility to work */
     justify-content: space-between;
     margin-top: 10px;
   }
+
   .team-page {
     padding: 0;
     display: flex;
