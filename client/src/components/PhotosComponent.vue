@@ -101,7 +101,7 @@ export default {
   flex-direction: column;
   color: white;
   align-items: center;
-  background-color: rgb(26, 25, 25);
+  background-color: rgb(5, 9, 17);
   height: 90vh;
   width: 100vw;
 }

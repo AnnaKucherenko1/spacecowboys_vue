@@ -155,6 +155,8 @@ export default {
   justify-content: center;
   color: white;
   gap: 20px;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .mobile-menu {
@@ -163,7 +165,7 @@ export default {
   right: 0;
   left: 0;
   left: calc(0%, -50px);
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(5, 9, 17, 0.925);
   z-index: 101;
   display: flex;
   height: 100vh;
@@ -174,6 +176,8 @@ export default {
 }
 
 .mobile-menu a {
+  font-weight: 700;
+  font-size: 18px;
   color: white;
   font-size: 24px;
   margin: 10px 0;

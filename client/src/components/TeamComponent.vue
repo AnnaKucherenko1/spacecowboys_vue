@@ -8,15 +8,14 @@
     <div class="team-cards-container">
       <div class="team-cards">
         <div
-          class="team-card"
+          class="team-card desktop-only"
           v-for="(member, index) in teamMembers"
           :key="index"
           @click="toggleCard(member)"
           :class="{ flipped: member.flipped }"
-          :style="{ transform: `translateX(-${currentIndex * cardWidth}px)` }"
         >
           <div class="card-inner">
-            <div class="front">
+            <div class="front" :class="{ flipped: member.flipped }">
               <img
                 class="member-photo"
                 :src="member.photo"
@@ -29,9 +28,42 @@
                 <div>missions: {{ member.missions }}</div>
               </div>
             </div>
-            <div class="back">
+            <div class="back" :class="{ flipped: member.flipped }">
               <div class="quote-content">
-                <p>{{ member.name.split(" ")[0] }}'S FAMOUS QUOTE:</p>
+                {{ member.name.split(" ")[0] }}'S FAMOUS QUOTE:
+                <div class="quote-text">"{{ member.quote }}"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="team-card mobile-only"
+          v-for="(member, index) in teamMembers"
+          :key="index"
+          @click="toggleCard(member)"
+          :style="{ transform: `translateX(-${currentIndex * cardWidth}px)` }"
+        >
+          <div class="card-inner">
+            <div class="front" :class="{ flipped: member.flipped }">
+              <img
+                class="member-photo"
+                :src="member.photo"
+                alt="Team Member Photo"
+              />
+              <div class="member-details">
+                <div class="member-name">
+                  {{ member.name.split(" ")[0] }}<br />{{
+                    member.name.split(" ")[1]
+                  }}
+                </div>
+                <div class="member-position">{{ member.position }}</div>
+                <div class="member-age">age: {{ member.age }}</div>
+                <div>missions: {{ member.missions }}</div>
+              </div>
+            </div>
+            <div class="back" :class="{ flipped: member.flipped }">
+              <div class="quote-content">
+                {{ member.name.split(" ")[0] }}'S FAMOUS QUOTE:
                 <div class="quote-text">"{{ member.quote }}"</div>
               </div>
             </div>
@@ -41,7 +73,9 @@
     </div>
     <div class="card-buttons">
       <div class="card-buttons">
-        <button @click="prevCard">Previous</button>
+        <button class="btn" @click="prevCard">
+          <i class="fa fa-chevron-circle-left circle" aria-hidden="true"></i>
+        </button>
         <div class="dots">
           <span
             v-for="(member, index) in teamMembers"
@@ -50,7 +84,9 @@
             :class="{ active: index === currentIndex }"
           ></span>
         </div>
-        <button @click="nextCard">Next</button>
+        <button class="btn" @click="nextCard">
+          <i class="fa fa-chevron-circle-right circle" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -63,7 +99,7 @@ export default {
     return {
       teamMembers: [
         {
-          name: "Dick Kucherenko",
+          name: "Robert Kucherenko",
           position: "IMPORTANT PERSON",
           age: 40,
           missions: 1,
@@ -75,7 +111,7 @@ export default {
           position: "ENGINEER",
           age: 48,
           missions: 13,
-          photo: require("@/assets/images/cosmonauts/cosmonaut.jpg"),
+          photo: require("@/assets/images/cosmonauts/cosmonaut (6).jpg"),
           quote: `I may be just one person, but I'm one person who can eat a whole pizza.`,
         },
         {
@@ -104,7 +140,7 @@ export default {
         },
       ],
       currentIndex: 0,
-      cardWidth: 300,
+      cardWidth: 360,
     };
   },
   methods: {
@@ -165,7 +201,7 @@ export default {
 }
 
 /* visibility: hidden; is a hack because  because i dont seem to get
-backface visibility working */
+backface visibility to work */
 .front.flipped {
   visibility: hidden;
   transition: transform 0.8s;
@@ -174,7 +210,7 @@ backface visibility working */
 .team-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
   width: 70%;
 }
@@ -189,6 +225,7 @@ backface visibility working */
   cursor: pointer;
   transition: transform 0.5s;
   perspective: 1000px;
+  flex-shrink: 0;
 }
 
 .card-inner {
@@ -202,23 +239,23 @@ backface visibility working */
 
 .front {
   position: absolute;
-  background-color: rgba(59, 59, 59, 0.123);
+  background-color: rgb(59, 59, 59);
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 150px;
+  height: 100%;
   border-radius: 5px;
   z-index: 100;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-/* backface visibility is not working for me, hides both sides :-( */
+/* cant get backface visibility to work properly, hides both sides :-( */
 .back {
   transform: rotateY(180deg);
   background: linear-gradient(to right, #333, #000);
   width: 100%;
-  height: 150px;
+  height: 100%;
   border-radius: 5px;
   /* backface-visibility: hidden;
   -webkit-backface-visibility: hidden; */
@@ -230,16 +267,23 @@ backface visibility working */
   background: linear-gradient(to right, #333, #000);
   flex-direction: column;
 }
-
+.quote-content {
+  padding: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.384);
+}
 .quote-text {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-style: italic;
   font-size: 18px;
+  padding-top: 10%;
+  color: rgb(255, 255, 255);
 }
 
 .member-photo {
   width: 50%;
+  height: 100%;
   border-radius: 5px;
 }
 
@@ -248,7 +292,9 @@ backface visibility working */
   flex-direction: column;
   justify-content: center;
   align-items: start;
+  text-align: start;
   width: 50%;
+  height: 100%;
   padding: 5px;
 }
 
@@ -263,34 +309,61 @@ backface visibility working */
   margin-bottom: 10px;
 }
 
+@media screen and (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
   .team-cards-container {
-    width: auto;
-    height: auto;
+    width: 100vw;
+    height: 225px;
     padding: 0;
   }
+
+  .member-details {
+    z-index: 100;
+  }
   .team-cards {
+    width: 90%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    /* gap: 10px; */
+    justify-content: space-between;
+    overflow: hidden;
+    flex-shrink: 0;
   }
-  .front {
-    width: 300px;
-    height: 200px;
+
+  .card-inner {
+    width: 100%;
+  }
+  .team-card {
+    width: 350px;
+    flex-shrink: 0;
   }
   .card-buttons {
     display: flex;
     justify-content: space-between;
+    width: 350px;
     margin-top: 10px;
+  }
+  .btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: white;
   }
   .dots {
     display: flex;
     justify-content: center;
     margin-top: 10px;
   }
-
   .dots span {
     width: 10px;
     height: 10px;

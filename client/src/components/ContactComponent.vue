@@ -50,6 +50,9 @@
               v-model="lastName"
             />
           </div>
+          <div v-if="!isEmailValid && isTyping" class="error-message">
+            Sorry, that's not a valid email
+          </div>
           <div class="input-icons">
             <i
               class="fa fa-check-circle-o icon valid"
@@ -66,6 +69,7 @@
               type="text"
               placeholder="E-Mail"
               v-model="email"
+              @input="checkEmailValidity"
             />
           </div>
         </div>
@@ -92,6 +96,7 @@ export default {
       firstName: "",
       lastName: "",
       email: "",
+      isTyping: false,
     };
   },
   computed: {
@@ -113,6 +118,9 @@ export default {
       } else {
         alert("Please enter first name, last name and an email.");
       }
+    },
+    checkEmailValidity() {
+      this.isTyping = true;
     },
   },
 };
@@ -163,7 +171,9 @@ export default {
   position: absolute;
   right: 0;
 }
-
+.error-message {
+  color: red;
+}
 .input-icons {
   position: relative;
   width: 100%;
