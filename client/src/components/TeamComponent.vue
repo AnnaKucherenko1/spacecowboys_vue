@@ -1,5 +1,5 @@
 <template>
-  <div id="team" class="team-page">
+  <div class="team-page">
     <div class="page-title">THE TEAM</div>
     <p class="page-content">
       Yep, that's us. Six fine fellows, eager to get on the next adventure.

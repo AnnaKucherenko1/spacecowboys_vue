@@ -2,8 +2,12 @@
   <NavbarComponent />
   <SpacecowboyComponent />
   <FactsComponent />
-  <AsyncComponentTeam />
-  <AsyncComponentPhotos />
+  <div id="team">
+    <AsyncComponentTeam />
+  </div>
+  <div id="photos">
+    <AsyncComponentPhotos />
+  </div>
   <ContactComponent />
   <FooterComponent />
 </template>
