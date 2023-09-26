@@ -1,6 +1,6 @@
 export const teamMembersData = [
   {
-    name: "Robert Kucherenko",
+    name: "ROBERT KUCHERENKO",
     position: "IMPORTANT PERSON",
     age: 40,
     missions: 1,
