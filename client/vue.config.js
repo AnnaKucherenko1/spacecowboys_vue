@@ -1,7 +1,7 @@
 const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/spacecowboy/" : "/",
+  publicPath: "/",
   transpileDependencies: true,
   configureWebpack: {
     plugins: [
