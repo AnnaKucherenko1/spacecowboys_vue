@@ -50,9 +50,9 @@ export default {
     return {
       images: [
         require("@/assets/images/space/space (1).jpg"),
-        require("@/assets/images/space/space (2).jpeg"),
+        require("@/assets/images/space/space (2).jpg"),
         require("@/assets/images/space/space (3).jpeg"),
-        require("@/assets/images/space/space (4).jpeg"),
+        require("@/assets/images/space/space (4).jpg"),
         require("@/assets/images/space/space (5).jpeg"),
         require("@/assets/images/space/space (6).jpeg"),
         require("@/assets/images/space/space (7).jpeg"),
