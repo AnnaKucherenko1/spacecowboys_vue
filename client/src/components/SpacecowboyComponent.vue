@@ -38,7 +38,7 @@ export default {
 <style scoped>
 .wrapper {
   padding: 0;
-  background-image: url("@/assets/images/hero.jpg");
+  background-image: url("@/assets/images/hero_.webp");
   backdrop-filter: rgba(0, 0, 0, 0.384);
   background-size: cover;
   width: 100vw;

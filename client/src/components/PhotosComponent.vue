@@ -49,14 +49,14 @@ export default {
   data() {
     return {
       images: [
-        require("@/assets/images/space/space (1).jpeg"),
+        require("@/assets/images/space/space (1).jpg"),
         require("@/assets/images/space/space (2).jpeg"),
         require("@/assets/images/space/space (3).jpeg"),
         require("@/assets/images/space/space (4).jpeg"),
         require("@/assets/images/space/space (5).jpeg"),
         require("@/assets/images/space/space (6).jpeg"),
         require("@/assets/images/space/space (7).jpeg"),
-        require("@/assets/images/space/space (8).jpeg"),
+        require("@/assets/images/space/space (8).jpg"),
         require("@/assets/images/space/space (9).jpeg"),
         require("@/assets/images/space/space (10).jpeg"),
         require("@/assets/images/space/space (11).jpeg"),
