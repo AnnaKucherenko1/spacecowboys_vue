@@ -71,7 +71,6 @@ export default {
     openImage(image) {
       this.selectedImage = image;
       this.isImageModalOpen = true;
-      console.log(this.selectedImage);
     },
     closeImageModal() {
       this.isImageModalOpen = false;
