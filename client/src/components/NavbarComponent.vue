@@ -165,7 +165,6 @@ export default {
   top: 0;
   right: 0;
   left: 0;
-  left: calc(0%, -50px);
   background-color: rgba(5, 9, 17, 0.925);
   z-index: 101;
   display: flex;
