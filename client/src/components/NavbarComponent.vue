@@ -52,7 +52,7 @@
         >
       </div>
       <button @click="toggleMobileMenu" class="mobile-button">
-        {{ isMobileMenuOpen ? "x close" : "Menu" }}
+        {{ isMobileMenuOpen ? "Close" : "Menu" }}
       </button>
     </div>
   </nav>

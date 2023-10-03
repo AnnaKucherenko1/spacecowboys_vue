@@ -159,8 +159,6 @@ export default {
   transform: rotateY(180deg);
 }
 
-/* visibility: hidden; is a hack because  because i dont seem to get
-backface visibility to work */
 .front.flipped {
   visibility: hidden;
   transition: transform 0.8s;
@@ -175,8 +173,8 @@ backface visibility to work */
 }
 
 .team-card {
-  width: 300px;
-  height: 200px;
+  width: 30%;
+  height: 70%;
   color: white;
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
@@ -191,8 +189,6 @@ backface visibility to work */
   width: 100%;
   height: 100%;
   text-align: center;
-  /* transition: transform 0.8s; */
-  /* transform-style: preserve-3d; */
 }
 
 .front {
@@ -209,15 +205,12 @@ backface visibility to work */
   transform: rotateY(0deg);
 }
 
-/* cant get backface visibility to work properly, hides both sides :-( */
 .back {
   transform: rotateY(180deg);
   background: linear-gradient(to right, #333, #000);
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  /* backface-visibility: hidden;
-  -webkit-backface-visibility: hidden; */
 }
 .card-buttons {
   display: none;
