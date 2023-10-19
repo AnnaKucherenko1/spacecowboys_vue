@@ -85,6 +85,7 @@ export default {
         top: offsetPosition,
         behavior: "smooth",
       });
+      this.isMobileMenuOpen = !this.isMobileMenuOpen;
     },
     updateActiveSection() {
       const scrollY = window.scrollY;

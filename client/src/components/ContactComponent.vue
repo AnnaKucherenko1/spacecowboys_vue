@@ -60,9 +60,6 @@
               @input="checkLastNameValidity"
             />
           </div>
-          <div v-if="!isEmailValid && isTypingEmail" class="error-message">
-            Sorry, that's no valid E-Mail adress
-          </div>
           <div class="input-icons">
             <i
               class="fa fa-check-circle-o icon valid"
@@ -85,6 +82,9 @@
               v-model="email"
               @input="checkEmailValidity"
             />
+          </div>
+          <div v-if="!isEmailValid && isTypingEmail" class="error-message">
+            Sorry, that's no valid E-Mail adress
           </div>
         </div>
         <textarea

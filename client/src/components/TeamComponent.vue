@@ -153,6 +153,8 @@ export default {
   text-align: center;
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: 70%;
 }
 
 .team-card.flipped {
@@ -169,12 +171,9 @@ export default {
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  width: 70%;
 }
 
 .team-card {
-  width: 30%;
-  height: 70%;
   color: white;
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
@@ -250,7 +249,7 @@ export default {
 }
 
 .member-name {
-  font-size: 18px;
+  font-size: 100%;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -260,13 +259,27 @@ export default {
   margin-bottom: 10px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1050px) {
   .mobile-only {
     display: none;
   }
+  .team-cards-container {
+    width: 100%;
+    height: 70%;
+  }
+
+  .team-cards {
+    width: 70%;
+    height: 100%;
+  }
+
+  .team-card {
+    width: 30%;
+    height: 40%;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1050px) {
   .desktop-only {
     display: none;
   }
